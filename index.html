@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Owen May — Mechanical Engineering Portfolio</title>
-<meta name="description" content="Owen May — Mechanical Engineering, Cal Poly SLO. Medical devices, land development, product design, and research.">
+<meta name="description" content="Owen May — Mechanical Engineering, Cal Poly SLO. Medical devices, product design, research, technical consulting, and quality &amp; compliance.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,18 +12,18 @@
   :root{
     --bg:#ffffff;
     --bg-soft:#f5f6f8;
-    --ink:#0a0a0a;
+    --ink:#1d1d1f;
     --ink-soft:#4a5560;
     --ink-faint:#7c8792;
     --accent:#2e5a8c;
     --accent-deep:#14263e;
     --line:#d5d9de;
     --line-strong:#aeb5bd;
-    --radius:0px;
+    --radius:6px;
     --maxw:1180px;
     --font: 'Poppins', sans-serif;
 
-    --fs-hero:92px;
+    --fs-hero:78px;
     --fs-title:28px;
     --fs-subtitle:20px;
     --fs-label:16px;
@@ -54,6 +54,7 @@
   .wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px;}
   @media (max-width:640px){ .wrap{padding:0 20px;} }
 
+  /* ---------- NAV ---------- */
   header{
     position:sticky; top:0; z-index:60;
     background:rgba(255,255,255,0.92);
@@ -95,7 +96,7 @@
   }
   .dropdown{
     list-style:none; margin:0; padding:8px; position:absolute; top:calc(100% + 4px); left:0;
-    background:#fff; border:1px solid var(--line); min-width:200px;
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius); min-width:200px;
     box-shadow:0 12px 24px rgba(10,10,10,0.08);
     opacity:0; pointer-events:none; transform:translateY(-6px);
     transition:opacity .15s ease, transform .15s ease;
@@ -105,7 +106,7 @@
     opacity:1; pointer-events:auto; transform:translateY(0);
   }
   .dropdown li a{
-    display:block; padding:10px 12px; text-decoration:none;
+    display:block; padding:10px 12px; text-decoration:none; border-radius:calc(var(--radius) - 2px);
     font-size:13px; font-weight:500; color:var(--ink-soft);
     transition:background .15s ease, color .15s ease;
   }
@@ -121,7 +122,7 @@
 
   .nav-cta{
     display:inline-flex; align-items:center; gap:6px;
-    background:var(--ink); color:#fff !important;
+    background:var(--ink); color:#fff !important; border-radius:var(--radius);
     padding:9px 16px; margin-left:6px;
     font-size:12.5px; font-weight:700; text-decoration:none; letter-spacing:-0.01em;
   }
@@ -150,14 +151,15 @@
     .nav-toggle{display:block;}
   }
 
+  /* ---------- HERO ---------- */
   .hero{padding:96px 0 84px; border-bottom:1px solid var(--line);}
   .hero-label{
     font-size:12px; color:var(--accent); font-weight:700;
     text-transform:uppercase; letter-spacing:0.08em; margin:0 0 18px;
   }
   .hero h1{
-    font-weight:800; font-size:var(--fs-hero);
-    line-height:0.96; letter-spacing:-0.035em; margin:0 0 22px; color:var(--ink);
+    font-weight:700; font-size:var(--fs-hero);
+    line-height:1.02; letter-spacing:-0.02em; margin:0 0 22px; color:var(--ink);
   }
   .hero-fact{
     font-size:var(--fs-label); font-weight:600; color:var(--ink);
@@ -179,6 +181,19 @@
   .btn-outline{border-color:var(--ink); color:var(--ink);}
   .btn-outline:hover{background:var(--ink); color:#fff;}
 
+  /* ---------- CTA STANDOFF ---------- */
+  .cta-band{padding:16px 0; background:var(--bg-soft); border-top:3px solid var(--accent); border-bottom:1px solid var(--line);}
+  .cta-band-inner{display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;}
+  .cta-status{font-size:13px; color:var(--ink); font-weight:500;}
+  .cta-band-link{
+    font-size:12.5px; font-weight:700; color:#fff; text-decoration:none;
+    background:var(--accent); border:1px solid var(--accent); border-radius:999px; padding:9px 18px;
+    display:inline-flex; align-items:center; gap:6px;
+    transition:background .15s ease, gap .15s ease;
+  }
+  .cta-band-link:hover{background:var(--accent-deep); border-color:var(--accent-deep); gap:9px;}
+
+  /* ---------- SECTION shell ---------- */
   section{padding:84px 0;}
   .section-alt{background:var(--bg-soft);}
   .eyebrow{
@@ -186,13 +201,14 @@
     text-transform:uppercase; letter-spacing:0.08em; margin:0 0 14px;
   }
   h2.title{
-    font-weight:800; font-size:var(--fs-title); letter-spacing:-0.02em;
+    font-weight:700; font-size:var(--fs-title); letter-spacing:-0.015em;
     margin:0 0 14px; color:var(--ink);
   }
   .section-lede{
     color:var(--ink-soft); max-width:560px; font-size:var(--fs-body); line-height:1.7; margin:0;
   }
 
+  /* ---------- ABOUT ---------- */
   .about-grid{
     display:grid; grid-template-columns:1fr 1.6fr; gap:56px; margin-top:44px;
   }
@@ -207,48 +223,58 @@
   .about-copy p{font-size:var(--fs-body); line-height:1.75; color:var(--ink); margin:0 0 20px;}
   .about-copy p:last-child{margin-bottom:0;}
 
+  /* ---------- WORK GRID (big images, consistent with Class Projects) ---------- */
   .work-head{
     display:flex; justify-content:space-between; align-items:flex-end;
-    gap:24px; flex-wrap:wrap; margin-bottom:40px;
+    gap:24px; flex-wrap:wrap; margin-bottom:28px;
   }
-  .work-list{border-top:2px solid var(--ink);}
-  .work-row{border-bottom:1px solid var(--line);}
-  .work-row summary{
-    list-style:none; cursor:pointer;
-    padding:30px 0; display:flex; align-items:center; justify-content:space-between; gap:24px;
+  .toc-row{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:32px;}
+  .toc-chip{
+    font-size:12px; font-weight:600; color:var(--ink-soft);
+    border:1px solid var(--line-strong); border-radius:999px; padding:7px 14px;
+    text-decoration:none; transition:background .15s ease, color .15s ease, border-color .15s ease;
   }
-  .work-row summary::-webkit-details-marker{display:none;}
-  .row-main{flex:1; min-width:0;}
-  .row-title{
-    font-weight:700; font-size:22px; letter-spacing:-0.015em; margin:0 0 8px; color:var(--ink);
+  .toc-chip:hover{background:var(--ink); color:#fff; border-color:var(--ink);}
+  .work-grid{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line);}
+  @media (max-width:760px){ .work-grid{grid-template-columns:1fr;} }
+
+  details.work-card{background:#fff; scroll-margin-top:90px;}
+  details.work-card summary{list-style:none; cursor:pointer; display:block;}
+  details.work-card summary::-webkit-details-marker{display:none;}
+
+  .card-image{
+    width:100%; aspect-ratio:16/10;
+    background:var(--bg-soft); border-bottom:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--ink-faint); font-size:11px; text-align:center; padding:12px;
+  }
+  .card-content{padding:24px 26px 26px;}
+  .card-top{display:flex; justify-content:space-between; align-items:flex-start; gap:14px; margin-bottom:6px;}
+  .card-title{
+    font-weight:700; font-size:19px; letter-spacing:-0.01em; margin:0; color:var(--ink);
     transition:color .15s ease;
   }
-  .work-row summary:hover .row-title{color:var(--accent);}
-  .row-meta{display:flex; align-items:center; flex-wrap:wrap; gap:10px; font-size:13px; color:var(--ink-soft);}
-  .row-org{font-weight:500;}
+  details.work-card summary:hover .card-title{color:var(--accent);}
+  .card-expand{
+    width:30px; height:30px; border:1px solid var(--line-strong); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    font-size:15px; color:var(--ink-soft);
+    transition:transform .2s ease, background .2s ease, color .2s ease;
+  }
+  details.work-card[open] .card-expand{background:var(--ink); color:#fff; transform:rotate(45deg);}
+  .card-meta{display:flex; align-items:center; flex-wrap:wrap; gap:8px; font-size:12.5px; color:var(--ink-soft); margin-bottom:12px;}
   .row-dot{color:var(--line-strong);}
   .tag-pill{
     font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;
     border:1px solid var(--accent); color:var(--accent);
-    padding:4px 10px;
+    padding:4px 10px; border-radius:20px;
   }
-  .row-arrow{
-    width:38px; height:38px; border:1px solid var(--line-strong);
-    display:flex; align-items:center; justify-content:center; flex-shrink:0;
-    font-size:16px; color:var(--ink);
-    transition:transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
-  }
-  .work-row summary:hover .row-arrow{border-color:var(--ink);}
-  .work-row[open] .row-arrow{background:var(--ink); color:#fff; transform:rotate(45deg);}
+  .card-outcome{border-top:1px solid var(--line); padding-top:12px;}
+  .card-outcome .label{font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--accent); margin:0 0 4px;}
+  .card-outcome .value{font-size:13px; color:var(--ink); margin:0; line-height:1.55;}
 
-  .row-body{padding:0 0 40px;}
-  .row-body-inner{display:grid; gap:24px; max-width:900px;}
-  .row-thumb{
-    width:100%; max-width:360px; aspect-ratio:16/10; margin-bottom:6px;
-    background:var(--bg-soft); border:1px dashed var(--line-strong);
-    display:flex; align-items:center; justify-content:center;
-    color:var(--ink-faint); font-size:11px; text-align:center; padding:12px;
-  }
+  .card-body{padding:0 26px 30px; border-top:1px solid var(--line); margin-top:20px;}
+  .card-body-inner{padding-top:22px; display:grid; gap:22px;}
   .kv-block h4{
     font-size:11px; font-weight:700; color:var(--accent);
     text-transform:uppercase; letter-spacing:0.05em; margin:0 0 8px;
@@ -261,6 +287,7 @@
     border:1px solid var(--line-strong); padding:5px 12px;
   }
 
+  /* ---------- CLASS PROJECTS ---------- */
   .mini-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:40px;}
   @media (max-width:860px){ .mini-grid{grid-template-columns:1fr;} }
   .mini-card{padding:26px; background:#fff;}
@@ -274,11 +301,12 @@
   .mini-card h3{font-size:14.5px; font-weight:700; margin:0 0 6px; letter-spacing:-0.01em; color:var(--ink);}
   .mini-card p{font-size:12.5px; color:var(--ink-soft); line-height:1.6; margin:0;}
 
+  /* ---------- CONTACT / FOOTER ---------- */
   footer{background:var(--ink); color:#fff; padding:76px 0 36px;}
   .footer-grid{display:flex; justify-content:space-between; gap:40px; flex-wrap:wrap; padding-bottom:48px; border-bottom:1px solid rgba(255,255,255,0.14);}
   .footer-head h2{
-    font-weight:800; font-size:36px;
-    letter-spacing:-0.02em; margin:0 0 14px; max-width:480px; color:#fff;
+    font-weight:700; font-size:34px;
+    letter-spacing:-0.015em; margin:0 0 14px; max-width:480px; color:#fff;
   }
   .footer-head p{color:rgba(255,255,255,0.62); font-size:var(--fs-body); max-width:420px; line-height:1.65; margin:0 0 24px;}
   .footer-actions{display:flex; gap:12px; flex-wrap:wrap;}
@@ -297,6 +325,30 @@
   }
 
   :focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+
+  /* ---------- SIDE SECTION NAV ---------- */
+  .section-dots{
+    position:fixed; right:22px; top:50%; transform:translateY(-50%); z-index:90;
+    display:flex; flex-direction:column; gap:16px; align-items:flex-end;
+  }
+  .section-dots .dot{
+    display:flex; align-items:center; gap:8px; text-decoration:none; cursor:pointer; padding:2px;
+  }
+  .dot-mark{
+    width:6px; height:6px; border-radius:50%; background:var(--line-strong); flex-shrink:0;
+    transition:background .2s ease, transform .2s ease;
+  }
+  .section-dots .dot.active .dot-mark{background:var(--accent); transform:scale(1.7);}
+  .dot-label{
+    font-size:11px; font-weight:600; color:var(--ink-soft); white-space:nowrap;
+    max-width:0; overflow:hidden; opacity:0; transition:max-width .25s ease, opacity .2s ease;
+  }
+  .section-dots:hover .dot-label{max-width:150px; opacity:1;}
+  .section-dots .dot.active .dot-label{color:var(--accent);}
+  @media (max-width:900px){ .section-dots{display:none;} }
+
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.revealed{opacity:1; transform:translateY(0);}
 
   @media (max-width:640px){
     :root{ --fs-hero:52px; }
@@ -334,18 +386,33 @@
   </div>
 </header>
 
+<nav class="section-dots" id="sectionDots" aria-label="Page sections">
+  <a href="#hero" class="dot active"><span class="dot-mark"></span><span class="dot-label">Home</span></a>
+  <a href="#about" class="dot"><span class="dot-mark"></span><span class="dot-label">About</span></a>
+  <a href="#work" class="dot"><span class="dot-mark"></span><span class="dot-label">Work</span></a>
+  <a href="#class-projects" class="dot"><span class="dot-mark"></span><span class="dot-label">Class Projects</span></a>
+  <a href="#contact" class="dot"><span class="dot-mark"></span><span class="dot-label">Contact</span></a>
+</nav>
+
 <main id="top">
 
-  <section class="hero">
+  <section class="hero" id="hero">
     <div class="wrap">
       <p class="hero-label">Portfolio</p>
       <h1>Owen May</h1>
       <p class="hero-fact">BS Mechanical Engineering — Cal Poly, San Luis Obispo, Expected 2027</p>
-      <p class="hero-tagline">A running collection of engineering work — medical devices, land development, product design, and research. Each project covers the problem, my role, and the outcome.</p>
+      <p class="hero-tagline">A running collection of engineering work — medical devices, product design, research, technical consulting, and quality &amp; compliance. Each project covers the problem, my role, and the outcome.</p>
       <div class="hero-actions">
         <a href="#work" class="btn btn-primary">View the work</a>
         <a href="OwenMayPortfolioV2.pdf" download="OwenMayPortfolio.pdf" class="btn btn-outline" target="_blank" rel="noopener">Download portfolio (PDF)</a>
       </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap cta-band-inner">
+      <div class="cta-status">Open to full-time and internship roles in engineering, product, and consulting.</div>
+      <a href="#contact" class="cta-band-link">Get in touch <span class="arrow">→</span></a>
     </div>
   </section>
 
@@ -354,7 +421,7 @@
       <p class="eyebrow">About</p>
       <h2 class="title">Background</h2>
       <div class="about-grid">
-        <ul class="facts">
+        <ul class="facts reveal">
           <li><span>Based in</span><span>San Luis Obispo, CA</span></li>
           <li><span>From</span><span>Denver, Colorado</span></li>
           <li><span>School</span><span>Cal Poly, San Luis Obispo</span></li>
@@ -362,9 +429,9 @@
           <li><span>Email</span><span><a href="mailto:owenbmay@gmail.com" style="text-decoration:underline;">owenbmay@gmail.com</a></span></li>
           <li><span>Phone</span><span>(720) 439-1744</span></li>
         </ul>
-        <div class="about-copy">
+        <div class="about-copy reveal">
           <p>Hi, I'm Owen, a 4th year Mechanical Engineering student at Cal Poly, San Luis Obispo, originally from Denver, Colorado.</p>
-          <p>I'm drawn to solving complex, ambiguous problems — diagnosing the real issue, gathering the right data, and iterating toward solutions that hold up under real-world constraints. That approach has taken me across medical devices, land development, and consumer product design, each requiring me to learn a new domain quickly and work closely with clients, engineers, and end users to deliver results that matter.</p>
+          <p>I'm drawn to solving complex, ambiguous problems — diagnosing the real issue, gathering the right data, and iterating toward solutions that hold up under real-world constraints. That approach has taken me across medical devices, consumer product design, technical consulting, and quality &amp; compliance, each requiring me to learn a new domain quickly and work closely with clients, engineers, and end users to deliver results that matter.</p>
           <p>The technical backbone stays consistent: CAD modeling, simulation (FEA/CFD), physical testing, and data-driven iteration. This portfolio walks through that process end-to-end — from problem framing to measurable outcomes — across each project.</p>
         </div>
       </div>
@@ -375,28 +442,70 @@
     <div class="wrap">
       <div class="work-head">
         <div>
-          <p class="eyebrow">Selected Work</p>
+          <p class="eyebrow">Professional Work</p>
           <h2 class="title" style="margin-bottom:0;">Projects</h2>
         </div>
         <p class="section-lede">Click a project to see the problem, my role, and the outcome.</p>
       </div>
 
-      <div class="work-list">
+      <div class="toc-row">
+        <a href="#proj-apreo" class="toc-chip">Apreo Health</a>
+        <a href="#proj-medical" class="toc-chip">Medical Device Redesign</a>
+        <a href="#proj-regen" class="toc-chip">Regenerative Medicine</a>
+        <a href="#proj-geo" class="toc-chip">Terrain &amp; Geospatial Data</a>
+        <a href="#proj-quality" class="toc-chip">Materials Testing</a>
+        <a href="#proj-product" class="toc-chip">Inclusive Product Design</a>
+      </div>
 
-        <details class="work-row">
+      <div class="work-grid">
+
+        <details class="work-card reveal" id="proj-apreo">
           <summary>
-            <div class="row-main">
-              <h3 class="row-title">Medical Device Redesign for Patient Care</h3>
-              <div class="row-meta">
-                <span class="row-org">EMPOWER Engineering Club / Edwards Lifesciences</span>
+            <div class="card-image">Add photo here</div>
+            <div class="card-content">
+              <div class="card-top">
+                <h3 class="card-title">Apreo Health</h3>
+                <div class="card-expand">+</div>
+              </div>
+              <div class="card-meta">
+                <span>Add company / role context here</span>
+                <span class="row-dot">·</span>
+                <span class="tag-pill">TBD</span>
+              </div>
+              <div class="card-outcome">
+                <p class="label">Status</p>
+                <p class="value">Awaiting project details.</p>
+              </div>
+            </div>
+          </summary>
+          <div class="card-body"><div class="card-body-inner">
+            <div class="kv-block">
+              <h4>Status</h4>
+              <p>This card is a placeholder so the grid layout is ready. Swap in the real overview, problem statement, your role, and outcome whenever you're ready.</p>
+            </div>
+          </div></div>
+        </details>
+
+        <details class="work-card reveal" id="proj-medical">
+          <summary>
+            <div class="card-image">Add photo here — e.g. final redesign render</div>
+            <div class="card-content">
+              <div class="card-top">
+                <h3 class="card-title">Medical Device Redesign for Patient Care</h3>
+                <div class="card-expand">+</div>
+              </div>
+              <div class="card-meta">
+                <span>EMPOWER Engineering Club / Edwards Lifesciences</span>
                 <span class="row-dot">·</span>
                 <span class="tag-pill">Medical Devices</span>
               </div>
+              <div class="card-outcome">
+                <p class="label">Outcome</p>
+                <p class="value">Reduced turbulent flow by 36.05% (FEA); project extended by the EMPOWER board with additional funding for validation and patent filing.</p>
+              </div>
             </div>
-            <div class="row-arrow">+</div>
           </summary>
-          <div class="row-body"><div class="row-body-inner">
-            <div class="row-thumb">Add photo here — e.g. final redesign render</div>
+          <div class="card-body"><div class="card-body-inner">
             <div class="kv-block">
               <h4>Problem</h4>
               <p>The existing NICU CPAP mask was bulky, unstable, and prone to turbulent flow — reducing respiratory efficiency and causing skin breakdown in premature infants. Poor fit and limited facial access hindered both comfort and clinical usability.</p>
@@ -429,20 +538,26 @@
           </div></div>
         </details>
 
-        <details class="work-row">
+        <details class="work-card reveal" id="proj-regen">
           <summary>
-            <div class="row-main">
-              <h3 class="row-title">Regenerative Medicine Research</h3>
-              <div class="row-meta">
-                <span class="row-org">CU Anschutz Medical Campus / UC Health</span>
+            <div class="card-image">Add photo here — e.g. microscopy image or lab photo</div>
+            <div class="card-content">
+              <div class="card-top">
+                <h3 class="card-title">Regenerative Medicine Research</h3>
+                <div class="card-expand">+</div>
+              </div>
+              <div class="card-meta">
+                <span>CU Anschutz Medical Campus / UC Health</span>
                 <span class="row-dot">·</span>
                 <span class="tag-pill">Research</span>
               </div>
+              <div class="card-outcome">
+                <p class="label">Outcome</p>
+                <p class="value">Established a working in vitro testing platform; findings presented at the 6th Annual Orthopedic Research Symposium.</p>
+              </div>
             </div>
-            <div class="row-arrow">+</div>
           </summary>
-          <div class="row-body"><div class="row-body-inner">
-            <div class="row-thumb">Add photo here — e.g. microscopy image or lab photo</div>
+          <div class="card-body"><div class="card-body-inner">
             <div class="kv-block">
               <h4>Problem</h4>
               <p>Chronic tendinopathy remains difficult to treat due to poor healing and limited regenerative options. PRP is a promising biologic therapy, but clinical outcomes are inconsistent due to variability in preparation and a lack of standardized testing platforms.</p>
@@ -470,20 +585,26 @@
           </div></div>
         </details>
 
-        <details class="work-row">
+        <details class="work-card reveal" id="proj-geo">
           <summary>
-            <div class="row-main">
-              <h3 class="row-title">Land &amp; Resource Analysis for Development</h3>
-              <div class="row-meta">
-                <span class="row-org">J&amp;T Consulting</span>
+            <div class="card-image">Add photo here — e.g. basemap or terrain model</div>
+            <div class="card-content">
+              <div class="card-top">
+                <h3 class="card-title">Terrain &amp; Geospatial Data Analysis</h3>
+                <div class="card-expand">+</div>
+              </div>
+              <div class="card-meta">
+                <span>J&amp;T Consulting</span>
                 <span class="row-dot">·</span>
-                <span class="tag-pill">Civil / Land Development</span>
+                <span class="tag-pill">Technical Consulting</span>
+              </div>
+              <div class="card-outcome">
+                <p class="label">Outcome</p>
+                <p class="value">Identified additional minable surface beyond initial project estimates, supporting long-term resource planning.</p>
               </div>
             </div>
-            <div class="row-arrow">+</div>
           </summary>
-          <div class="row-body"><div class="row-body-inner">
-            <div class="row-thumb">Add photo here — e.g. basemap or terrain model</div>
+          <div class="card-body"><div class="card-body-inner">
             <div class="kv-block">
               <h4>Problem</h4>
               <p>Existing site models relied on outdated data, limiting accuracy for resource planning. The client needed a full redesign to maximize profitability while meeting regulatory compliance.</p>
@@ -515,20 +636,26 @@
           </div></div>
         </details>
 
-        <details class="work-row">
+        <details class="work-card reveal" id="proj-quality">
           <summary>
-            <div class="row-main">
-              <h3 class="row-title">Construction Quality &amp; Compliance</h3>
-              <div class="row-meta">
-                <span class="row-org">J&amp;T Consulting</span>
+            <div class="card-image">Add photo here — e.g. field testing or drawing sample</div>
+            <div class="card-content">
+              <div class="card-top">
+                <h3 class="card-title">Materials Testing &amp; Regulatory Compliance</h3>
+                <div class="card-expand">+</div>
+              </div>
+              <div class="card-meta">
+                <span>J&amp;T Consulting</span>
                 <span class="row-dot">·</span>
-                <span class="tag-pill">Civil / Compliance</span>
+                <span class="tag-pill">Quality &amp; Compliance</span>
+              </div>
+              <div class="card-outcome">
+                <p class="label">Outcome</p>
+                <p class="value">Three drawing sets, 12 pages each, formatted and revised to full regulatory approval.</p>
               </div>
             </div>
-            <div class="row-arrow">+</div>
           </summary>
-          <div class="row-body"><div class="row-body-inner">
-            <div class="row-thumb">Add photo here — e.g. field testing or drawing sample</div>
+          <div class="card-body"><div class="card-body-inner">
             <div class="kv-block">
               <h4>Project Overview</h4>
               <p>Conducted on-site material testing for active construction projects, coordinating with crews to obtain representative samples. Monitored field testing procedures and prepared formal reports to support geotechnical evaluation, quality control, and soil suitability verification.</p>
@@ -552,20 +679,26 @@
           </div></div>
         </details>
 
-        <details class="work-row">
+        <details class="work-card reveal" id="proj-product">
           <summary>
-            <div class="row-main">
-              <h3 class="row-title">Inclusive Product Design</h3>
-              <div class="row-meta">
-                <span class="row-org">Empower Engineering Club / Callaway Golf</span>
+            <div class="card-image">Add photo here — e.g. glove prototype</div>
+            <div class="card-content">
+              <div class="card-top">
+                <h3 class="card-title">Inclusive Product Design</h3>
+                <div class="card-expand">+</div>
+              </div>
+              <div class="card-meta">
+                <span>Empower Engineering Club / Callaway Golf</span>
                 <span class="row-dot">·</span>
                 <span class="tag-pill">Product Design</span>
               </div>
+              <div class="card-outcome">
+                <p class="label">Outcome</p>
+                <p class="value">Placed 2nd overall in Cal Poly's campus-wide design competition.</p>
+              </div>
             </div>
-            <div class="row-arrow">+</div>
           </summary>
-          <div class="row-body"><div class="row-body-inner">
-            <div class="row-thumb">Add photo here — e.g. glove prototype</div>
+          <div class="card-body"><div class="card-body-inner">
             <div class="kv-block">
               <h4>Problem</h4>
               <p>Traditional golf gloves offer minimal support for players with hand weakness or impaired grip. Without a secure connection to the club, adaptive athletes struggle to maintain control, resulting in inconsistent shots and increased injury risk.</p>
@@ -590,27 +723,6 @@
           </div></div>
         </details>
 
-        <details class="work-row">
-          <summary>
-            <div class="row-main">
-              <h3 class="row-title">Apreo Health</h3>
-              <div class="row-meta">
-                <span class="row-org">Add company / role context here</span>
-                <span class="row-dot">·</span>
-                <span class="tag-pill">TBD</span>
-              </div>
-            </div>
-            <div class="row-arrow">+</div>
-          </summary>
-          <div class="row-body"><div class="row-body-inner">
-            <div class="row-thumb">Add photo here</div>
-            <div class="kv-block">
-              <h4>Status</h4>
-              <p>This row is a placeholder so the list is ready. Swap in the real overview, problem statement, your role, and outcome whenever you're ready.</p>
-            </div>
-          </div></div>
-        </details>
-
       </div>
     </div>
   </section>
@@ -621,19 +733,19 @@
       <h2 class="title">Class Projects</h2>
       <p class="section-lede">Cal Poly, San Luis Obispo</p>
       <div class="mini-grid">
-        <div class="mini-card">
+        <div class="mini-card reveal">
           <div class="mini-image">Add photo here — e.g. Geneva wheel drawing</div>
           <span class="mono-label">ME 251 · SolidWorks</span>
           <h3>Bottle Wheel Assembly, Geneva Wheel Mechanism</h3>
           <p>Constrained components using advanced SolidWorks mates and applied a Motion Study to simulate intermittent indexing, verifying smooth operation and timing.</p>
         </div>
-        <div class="mini-card">
+        <div class="mini-card reveal">
           <div class="mini-image">Add photo here — e.g. shifter fork drawing</div>
           <span class="mono-label">ME 251 · SolidWorks</span>
           <h3>Shifter Fork</h3>
           <p>Full dimensioning and geometric tolerancing, bill of materials, and callouts to industry standards — ensuring clarity and manufacturability.</p>
         </div>
-        <div class="mini-card">
+        <div class="mini-card reveal">
           <div class="mini-image">Add photo here — e.g. P–h diagram</div>
           <span class="mono-label">ME 303 · Engineering Equation Solver</span>
           <h3>Refrigeration System Analysis</h3>
@@ -715,13 +827,55 @@
     });
   });
 
-  var rows = document.querySelectorAll('#work details.work-row');
-  rows.forEach(function(row){
-    row.addEventListener('toggle', function(){
-      if(row.open){
-        rows.forEach(function(other){
-          if(other !== row) other.open = false;
+  var cards = document.querySelectorAll('#work details.work-card');
+  cards.forEach(function(card){
+    card.addEventListener('toggle', function(){
+      if(card.open){
+        cards.forEach(function(other){
+          if(other !== card) other.open = false;
         });
+      }
+    });
+  });
+
+  var dots = document.querySelectorAll('.section-dots .dot');
+  var spySections = ['hero','about','work','class-projects','contact']
+    .map(function(id){ return document.getElementById(id); })
+    .filter(Boolean);
+  if ('IntersectionObserver' in window && dots.length) {
+    var spyObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (!entry.isIntersecting) return;
+        var id = entry.target.id;
+        dots.forEach(function(d){ d.classList.remove('active'); });
+        var match = document.querySelector('.section-dots .dot[href="#' + id + '"]');
+        if (match) match.classList.add('active');
+      });
+    }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+    spySections.forEach(function(s){ spyObserver.observe(s); });
+  }
+
+  if ('IntersectionObserver' in window) {
+    var revealEls = document.querySelectorAll('.reveal');
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('revealed'); });
+  }
+
+  document.querySelectorAll('.toc-chip').forEach(function(chip){
+    chip.addEventListener('click', function(){
+      var id = chip.getAttribute('href').slice(1);
+      var target = document.getElementById(id);
+      if (target && target.tagName === 'DETAILS') {
+        target.open = true;
       }
     });
   });
