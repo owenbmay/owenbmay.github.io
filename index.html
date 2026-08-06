@@ -193,6 +193,25 @@
   }
   .cta-band-link:hover{background:var(--accent-deep); border-color:var(--accent-deep); gap:9px;}
 
+  /* ---------- PROJECTS HUB ---------- */
+  .hub-grid{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); margin-top:36px;}
+  @media (max-width:760px){ .hub-grid{grid-template-columns:1fr;} }
+  .hub-tile{
+    display:block; background:#fff; padding:32px; text-decoration:none; color:var(--ink);
+    position:relative; transition:background .15s ease;
+  }
+  .hub-tile:hover{background:var(--bg-soft);}
+  .hub-label{
+    display:block; font-weight:700; font-size:20px; letter-spacing:-0.01em;
+    margin-bottom:8px; padding-right:32px;
+  }
+  .hub-desc{display:block; font-size:13px; color:var(--ink-soft); line-height:1.6; max-width:340px;}
+  .hub-arrow{
+    position:absolute; top:32px; right:32px; font-size:18px; color:var(--accent);
+    transition:transform .15s ease;
+  }
+  .hub-tile:hover .hub-arrow{transform:translateX(4px);}
+
   /* ---------- SECTION shell ---------- */
   section{padding:84px 0;}
   .section-alt{background:var(--bg-soft);}
@@ -372,7 +391,7 @@
         <li class="has-dropdown" id="projectsDropdown">
           <a href="#work">Projects <span class="caret">▾</span></a>
           <ul class="dropdown">
-            <li><a href="#work">Professional Work</a></li>
+            <li><a href="#work">Professional Projects</a></li>
             <li><a href="#class-projects">University Projects</a></li>
           </ul>
         </li>
@@ -438,11 +457,31 @@
     </div>
   </section>
 
+  <section id="projects-hub">
+    <div class="wrap">
+      <p class="eyebrow">Projects</p>
+      <h2 class="title">Explore the work</h2>
+      <p class="section-lede">Ordered by relevance within each — professional experience first, then coursework.</p>
+      <div class="hub-grid">
+        <a href="#work" class="hub-tile reveal">
+          <span class="hub-label">Professional Projects</span>
+          <span class="hub-desc">Internships and industry work — medical devices, product design, and technical consulting.</span>
+          <span class="hub-arrow">→</span>
+        </a>
+        <a href="#class-projects" class="hub-tile reveal">
+          <span class="hub-label">University Projects</span>
+          <span class="hub-desc">Coursework at Cal Poly — machine design, thermal systems, and mechanism design.</span>
+          <span class="hub-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section id="work" class="section-alt">
     <div class="wrap">
       <div class="work-head">
         <div>
-          <p class="eyebrow">Professional Work</p>
+          <p class="eyebrow">Professional Projects</p>
           <h2 class="title" style="margin-bottom:0;">Projects</h2>
         </div>
         <p class="section-lede">Click a project to see the problem, my role, and the outcome. Full photo galleries and project timelines are in the downloadable PDF.</p>
@@ -753,6 +792,7 @@
       <p class="eyebrow">Coursework</p>
       <h2 class="title">University Projects</h2>
       <p class="section-lede">Cal Poly, San Luis Obispo</p>
+
       <div class="mini-grid">
         <div class="mini-card reveal">
           <div class="mini-image"><img src="images/ATV.png" alt="ATV powertrain SolidWorks assembly render" style="width:100%;height:100%;object-fit:cover;"></div>
@@ -835,6 +875,7 @@
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
 
+  // Dropdown: click-toggle for mobile, hover handles desktop via CSS
   var dropdownParent = document.getElementById('projectsDropdown');
   var dropdownLink = dropdownParent.querySelector('a');
   dropdownLink.addEventListener('click', function(e){
@@ -860,17 +901,7 @@
     });
   });
 
-  var cards = document.querySelectorAll('#work details.work-card');
-  cards.forEach(function(card){
-    card.addEventListener('toggle', function(){
-      if(card.open){
-        cards.forEach(function(other){
-          if(other !== card) other.open = false;
-        });
-      }
-    });
-  });
-
+  // Side section dots: highlight whichever section is centered in view
   var dots = document.querySelectorAll('.section-dots .dot');
   var spySections = ['hero','about','work','class-projects','contact']
     .map(function(id){ return document.getElementById(id); })
@@ -888,6 +919,7 @@
     spySections.forEach(function(s){ spyObserver.observe(s); });
   }
 
+  // Reveal-on-scroll
   if ('IntersectionObserver' in window) {
     var revealEls = document.querySelectorAll('.reveal');
     var io = new IntersectionObserver(function(entries){
@@ -903,6 +935,7 @@
     document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('revealed'); });
   }
 
+  // TOC chips: open the target project card when jumping to it
   document.querySelectorAll('.toc-chip').forEach(function(chip){
     chip.addEventListener('click', function(){
       var id = chip.getAttribute('href').slice(1);
