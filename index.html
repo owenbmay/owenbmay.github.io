@@ -1,16 +1,3 @@
-Found it — `IMG_9507.jpeg` never actually made it into the root `images/` folder locally (I'd only copied it into a different folder earlier). That's why it 404s. Let me fix that properly.
-
-Fixed and confirmed — the only actual difference between what's live on GitHub and my local copy is exactly the reorder you asked for (Test Fixture moved from 1st to 3rd), so nothing conflicts. Let's verify images render now.
-
-All 8 images now load correctly (`ok: true` across the board). Let's clean up the stray leftover files so the folder stays tidy for next time.
-
-Both fixed. Root cause was a workflow gap: when you upload a photo through GitHub's web UI, it only exists on GitHub — not in this local clone — until I explicitly fetch and copy it down. I did that for `IMG_9507.jpeg` and confirmed all 8 images now load. Going forward, whenever you add a new photo via GitHub, just tell me and I'll pull it down the same way before we preview.
-
-Two harmless leftover files sit in `images/` from earlier attempts (`SimUse.jpg`, `sim use.heic`) — nothing references them anymore, so they're safe to ignore or delete whenever you want; I'll leave them alone unless you say otherwise.
-
-Here's the complete, current `index.html` with the order confirmed (Apreo → Medical → Test Fixture → Scooter → Regen → Geo → Quality → Product):
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1053,4 +1040,3 @@ Here's the complete, current `index.html` with the order confirmed (Apreo → Me
 
 </body>
 </html>
-```
