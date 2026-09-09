@@ -1,3 +1,16 @@
+Found it — `IMG_9507.jpeg` never actually made it into the root `images/` folder locally (I'd only copied it into a different folder earlier). That's why it 404s. Let me fix that properly.
+
+Fixed and confirmed — the only actual difference between what's live on GitHub and my local copy is exactly the reorder you asked for (Test Fixture moved from 1st to 3rd), so nothing conflicts. Let's verify images render now.
+
+All 8 images now load correctly (`ok: true` across the board). Let's clean up the stray leftover files so the folder stays tidy for next time.
+
+Both fixed. Root cause was a workflow gap: when you upload a photo through GitHub's web UI, it only exists on GitHub — not in this local clone — until I explicitly fetch and copy it down. I did that for `IMG_9507.jpeg` and confirmed all 8 images now load. Going forward, whenever you add a new photo via GitHub, just tell me and I'll pull it down the same way before we preview.
+
+Two harmless leftover files sit in `images/` from earlier attempts (`SimUse.jpg`, `sim use.heic`) — nothing references them anymore, so they're safe to ignore or delete whenever you want; I'll leave them alone unless you say otherwise.
+
+Here's the complete, current `index.html` with the order confirmed (Apreo → Medical → Test Fixture → Scooter → Regen → Geo → Quality → Product):
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -488,9 +501,9 @@
       </div>
 
       <div class="toc-row">
-        <a href="#proj-fixture" class="toc-chip">Test Fixture &amp; Thermal System</a>
         <a href="#proj-apreo" class="toc-chip">Material Characterization</a>
         <a href="#proj-medical" class="toc-chip">Medical Device Redesign</a>
+        <a href="#proj-fixture" class="toc-chip">Test Fixture &amp; Thermal System</a>
         <a href="#proj-scooter" class="toc-chip">PVC Kart-Style Scooter</a>
         <a href="#proj-regen" class="toc-chip">Regenerative Medicine</a>
         <a href="#proj-geo" class="toc-chip">Terrain &amp; Geospatial Data</a>
@@ -499,54 +512,6 @@
       </div>
 
       <div class="work-grid">
-
-        <details class="work-card reveal" id="proj-fixture">
-          <summary>
-            <div class="card-image"><img src="images/IMG_9507.jpeg" alt="Temperature-controlled simulation-use test fixture with acrylic enclosure" style="width:100%;height:100%;object-fit:cover;"></div>
-            <div class="card-content">
-              <div class="card-top">
-                <h3 class="card-title">Test Fixture &amp; Thermal System Redesign</h3>
-                <div class="card-expand">+</div>
-              </div>
-              <div class="card-meta">
-                <span>Apreo Health — R&amp;D Engineering Intern</span>
-                <span class="row-dot">·</span>
-                <span class="tag-pill">Simulation-Use Model</span>
-              </div>
-              <div class="card-outcome">
-                <p class="label">Outcome</p>
-                <p class="value">Designed and validated a temperature-controlled simulation-use test fixture; findings presented to 50+ clinicians, executives, and investors.</p>
-              </div>
-            </div>
-          </summary>
-          <div class="card-body"><div class="card-body-inner">
-            <div class="kv-block">
-              <h4>Problem</h4>
-              <p>Evaluating procedural performance for a clinical-stage implant required a test fixture that could reproduce in-body thermal conditions accurately and repeatably — the existing setup couldn't hold a stable temperature range through a full test cycle.</p>
-            </div>
-            <div class="kv-block">
-              <h4>My Role</h4>
-              <p>Designed and iterated the mechanical components in SolidWorks, producing GD&amp;T drawings and QMS-controlled documentation for vendor fabrication of the enclosure. Developed the temperature-controlled test fixture itself alongside 3D-printed prototypes used for material characterization, running a Design of Experiments to correlate processing parameters with resulting mechanical performance.</p>
-            </div>
-            <div class="kv-block">
-              <h4>Outcome</h4>
-              <p>Delivered a functional, repeatable simulation-use model supporting procedural evaluation and device testing. Presented findings and demonstrated the fixture to more than 50 clinicians, executives, and investors.</p>
-            </div>
-            <div class="kv-block">
-              <h4>Skills Used</h4>
-              <div class="skills-row">
-                <span class="skill-pill">Mechanical Design (SolidWorks)</span>
-                <span class="skill-pill">GD&amp;T</span>
-                <span class="skill-pill">QMS Documentation</span>
-                <span class="skill-pill">Rapid Prototyping (SLA)</span>
-                <span class="skill-pill">Thermal System Design</span>
-                <span class="skill-pill">Design of Experiments</span>
-                <span class="skill-pill">Vendor Coordination</span>
-                <span class="skill-pill">Stakeholder Presentation</span>
-              </div>
-            </div>
-          </div></div>
-        </details>
 
         <details class="work-card reveal" id="proj-apreo">
           <summary>
@@ -643,6 +608,54 @@
                 <span class="skill-pill">Human Factors</span>
                 <span class="skill-pill">IP-Conscious Documentation</span>
                 <span class="skill-pill">Technical Communication</span>
+              </div>
+            </div>
+          </div></div>
+        </details>
+
+        <details class="work-card reveal" id="proj-fixture">
+          <summary>
+            <div class="card-image"><img src="images/IMG_9507.jpeg" alt="Temperature-controlled simulation-use test fixture with acrylic enclosure" style="width:100%;height:100%;object-fit:cover;"></div>
+            <div class="card-content">
+              <div class="card-top">
+                <h3 class="card-title">Test Fixture &amp; Thermal System Redesign</h3>
+                <div class="card-expand">+</div>
+              </div>
+              <div class="card-meta">
+                <span>Apreo Health — R&amp;D Engineering Intern</span>
+                <span class="row-dot">·</span>
+                <span class="tag-pill">Simulation-Use Model</span>
+              </div>
+              <div class="card-outcome">
+                <p class="label">Outcome</p>
+                <p class="value">Designed and validated a temperature-controlled simulation-use test fixture; findings presented to 50+ clinicians, executives, and investors.</p>
+              </div>
+            </div>
+          </summary>
+          <div class="card-body"><div class="card-body-inner">
+            <div class="kv-block">
+              <h4>Problem</h4>
+              <p>Evaluating procedural performance for a clinical-stage implant required a test fixture that could reproduce in-body thermal conditions accurately and repeatably — the existing setup couldn't hold a stable temperature range through a full test cycle.</p>
+            </div>
+            <div class="kv-block">
+              <h4>My Role</h4>
+              <p>Designed and iterated the mechanical components in SolidWorks, producing GD&amp;T drawings and QMS-controlled documentation for vendor fabrication of the enclosure. Developed the temperature-controlled test fixture itself alongside 3D-printed prototypes used for material characterization, running a Design of Experiments to correlate processing parameters with resulting mechanical performance.</p>
+            </div>
+            <div class="kv-block">
+              <h4>Outcome</h4>
+              <p>Delivered a functional, repeatable simulation-use model supporting procedural evaluation and device testing. Presented findings and demonstrated the fixture to more than 50 clinicians, executives, and investors.</p>
+            </div>
+            <div class="kv-block">
+              <h4>Skills Used</h4>
+              <div class="skills-row">
+                <span class="skill-pill">Mechanical Design (SolidWorks)</span>
+                <span class="skill-pill">GD&amp;T</span>
+                <span class="skill-pill">QMS Documentation</span>
+                <span class="skill-pill">Rapid Prototyping (SLA)</span>
+                <span class="skill-pill">Thermal System Design</span>
+                <span class="skill-pill">Design of Experiments</span>
+                <span class="skill-pill">Vendor Coordination</span>
+                <span class="skill-pill">Stakeholder Presentation</span>
               </div>
             </div>
           </div></div>
@@ -1040,3 +1053,4 @@
 
 </body>
 </html>
+```
